@@ -6,6 +6,7 @@ var menu = $("#sidebar");
       var div1 = $("#one");
       var div2 = $("#two");
       var div3 = $("#three"); 
+var username;
 
 function initializar(){
 
