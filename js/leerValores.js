@@ -2,7 +2,7 @@ $(document).ready(tomarValores);
 var database = firebase.database();
 var aceleracionLeida = [];
 var count = {};
-
+var valFiltro;
 
 
 function tomarValores() {
@@ -46,27 +46,25 @@ function tomarValores() {
 
 			
 		$('#tabla tbody > tr').remove(); //Limpiar tabla para cada nueva consulta
-		var filtro = aceRef.orderByChild("fecha").equalTo(fechaFiltroTimeStamp);    
-		
 
+//********************************* JUSTO ESTA FUNCION
+
+		var filtro = aceRef.orderByChild("fecha").equalTo(fechaFiltroTimeStamp);
+		console.log(filtro);
+	
       	filtro.on('child_added',function(datasnapshot){  
- 
+ 						console.log("entro");
 				      	valFiltro = datasnapshot.val();
 				      	console.log (valFiltro);
-		      	
 
-		      
 		      			console.log (valFiltro.aceleracion);
 		      			llenarTabla(valFiltro.numero, valFiltro.fecha, valFiltro.aceleracion, valFiltro.percepcion);
-
-			}, function(){
-				alert("fdsfsd");
-		      	
-
+		      		
+		     
 			});
-	
-		alert("a la mierda el error yo hago lo que quiera");
-
+ 
+      
+ /////***********************************************
 		
 
 	});
