@@ -10,7 +10,7 @@ function manipularCargas(){
 
 			var gas = database.ref().child('estado_cargas').child('gas').child('estado');
 			gas.on('value',function(datasnapshot){  
-			console.log(username.innerText);                                      
+		                                 
 		      gas.innerText = datasnapshot.val();
 	
 		      $('#check_gas').prop('checked', gas.innerText);

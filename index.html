@@ -78,7 +78,8 @@
 						                <label for="password">Clave</label>
 						                <input type="password" class="form-control" name="password" value="" id="password">
 						              </div>
-						              <input type="submit" name="" value="Iniciar" id="submit"> <button type="button" id= "salir"> Salir</button>
+						              <input type="submit" name="" value="Iniciar" id="submit"> <button type="button" id= "salir"> Salir</button> <button type="button" id= "olvido_contraseña"> Olvidé contraseña</button>
+
 						            </form>
 						           
 
@@ -203,65 +204,43 @@
 
 				<!-- Three -->
 					<section id="three" class="wrapper style1 fade-up" style="display: none">
-
-										
-					
-						<!-- <div class="inner">
-							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
-							<div class="split style1">
-								<section>
-									<form method="post" action="#">
-										<div class="field half first">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="5"></textarea>
-										</div>
-										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-										</ul>
-									</form>
-								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>12345 Somewhere Road #654<br />
-											Nashville, TN 00000-0000<br />
-											USA</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(000) 000-0000</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div> -->
+						<h2> Status del dispositivo</h2>
+						
+						<div>
+				
+							<h3>  Ubicación: </h3> 				
+							<div id="map"></div>
+						</div>
+						<div>
+							<h3> Horas activas: </h3>
+							<labe>Aqui irian las horas activas </labe>
+							
+							<h3> Temperatura del dispositivo: </h3>
+							<labe>Aqui irian la temperatura del dispo </labe>
+						</div>
 					</section>
 
-			</div>
+			
+
+						<div id="myModal" class="modal">
+
+								  <!-- Modal content -->
+							<div class="modal-content">
+								<div class="modal-header">
+								      <span class="close" onclick="cerrarModal()">&times;</span>
+								      <h2>Sistema de detección y alerta de sismos</h2>
+								</div>
+								<div class="modal-body">
+								  
+								      <div id = "texto_modal" > dsasda </div>
+								</div>
+								<div class="modal-footer">
+								      <p>Liliana Colls</p>
+								</div>
+							</div>
+
+						</div>
+					
 
 		<!-- Footer -->
 			<footer id="footer" class="wrapper style1-alt">
@@ -281,13 +260,18 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+
 		<!-- Scripts agregados -->	
+			 <!-- scripts modal-->
+			 <script src="js/modal.js"></script>
+			<!-- Scripts logica -->	
 			<script src="js/autenticacion.js"></script>
 			<script src="js/leerValores.js"></script>
 			<script src="js/cargas.js"></script>
 			<!-- scripts scrollbar-->
 			 <script src="js/underscore-1.5.2.min.js"></script>
         	 <script src="js/jquery.scrollTableBody-1.0.0.js"></script>
+        	
         	 <!-- scripts canvas -->
         	<script src="js/canvasjs.min.js"></script>
         	<!-- scripts calendario -->
@@ -330,6 +314,34 @@
   })();
 
 </script>
+
+ <!--GOOGLE MAPS -->
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6rSmiKhvhC8crqZfArIgyBc0cWPtyRY&callback=initMap">
+    </script>
+	
+
+
+		  <script>
+		      function initMap() {
+		        var uluru = {lat: 10.012514, lng: -69.244532};
+		        var map = new google.maps.Map(document.getElementById('map'), {
+		          zoom: 17,
+		          center: uluru
+
+		        });
+		        var marker = new google.maps.Marker({
+		          position: uluru,
+		          map: map
+		        });
+		      }
+		    </script>
+
+
+		
+
+
+ 
         	
 
         		</body>

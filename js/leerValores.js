@@ -64,7 +64,7 @@ function tomarValores() {
 
 if (boolpaso){
 }else {
-console.log("HAKUNA MATATA GORDIS");
+alert("No hay evento registrado para ese dia");
 }
 
 

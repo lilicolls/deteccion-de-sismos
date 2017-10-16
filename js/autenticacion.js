@@ -7,11 +7,30 @@ var menu = $("#sidebar");
       var div2 = $("#two");
       var div3 = $("#three"); 
 var username;
+ var user ;
+var pass;
 
 function initializar(){
 
       
   formAutenticacion = $("#form-autenticacion");
+
+  $('#olvido_contraseña').on("click", function(){
+    var auth = firebase.auth();
+    var emailAddress = $("#email").val();
+
+    auth.sendPasswordResetEmail(emailAddress)
+      .then (function(){
+        modal("se envio un correo");
+      }, function(error) {
+        modal(error)
+
+      })
+
+
+  });
+
+
   $('#submit').on("click",function(){
     var user = $("#email").val();
     var pass = $("#password").val();
@@ -45,8 +64,7 @@ function autentificar(user,pass){
       user = firebase.auth().currentUser;
       idUsuario = user.uid;
       
-    
-                   
+             
       menu.css('display', 'block');
       div1.css('display', 'block');
       div2.css('display', 'block');
@@ -57,9 +75,13 @@ function autentificar(user,pass){
       username.innerText = datasnapshot.val();
             //Validar el rango del usuario que ingreso para determinar sus permisos en la pagina
 
+    $("#email").val('');
+    $("#password").val('');   
       
       if (username.innerText == "admin") {
-        alert("usuario tiene permisos de admini");
+
+        
+       modal('Bienvenido administrador');
 
 
       }   
