@@ -50,10 +50,11 @@
 				<div class="inner" >
 					<nav>
 						<ul>
-							<li><a href="#intro">Inicio</a></li>
+							<!--<li ><a href="#intro">Inicio</a></li> -->
 							<li><a href="#one">Historial</a></li>
 							<li><a href="#two">Cargas conectadas</a></li>
 							<li><a href="#three">Status</a></li>
+							<li><div id = "salir">Salir</div></li>
 						</ul>
 					</nav>
 				</div>
@@ -64,27 +65,32 @@
 
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
-							<div class="inner">
-								
-										<form id="form-autenticacion">
-										<h1>Bienvenido</h1>
-						                <!-- Email para la autenticacion -->
-						                 <div class="form-group">
-						                <label for="email">Email</label>
-						                <input type="text" class="form-control" name="email" value="" id="email">
-						                 </div>
-						                 <!-- Pass para la autenticacion -->
-						                 <div class="form-group">
-						                <label for="password">Clave</label>
-						                <input type="password" class="form-control" name="password" value="" id="password">
-						              </div>
-						              <input type="submit" name="" value="Iniciar" id="submit"> <button type="button" id= "salir"> Salir</button> <button type="button" id= "olvido_contraseña"> Olvidé contraseña</button>
+							
+					
+  						<div class="demo">
+							<div class="login">
+								 <div class="login__check"></div>
+								  <div class="login__form">
+								  	<div class="login__row">
+								  		<svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+								  			<path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 	a4,4 0 0,1 0,-8" />
+          								</svg>
+          								 <input type="text" class="login__input name" placeholder="Username" autocomplete="off" id ="email"/>
+       								</div>
+								  	<div class="login__row">
+								  		<svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+            								<path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+          								</svg>
+          								<input type="password" class="login__input pass" placeholder="Password" id ="password"/>
 
-						            </form>
-						           
-
-						<!--Formulario de Inicio de Sesion-->
-							</div>
+									</div>
+									<button type="button" class="boton_formulario_inicio" id = "submit" >Entrar</button>
+									<!--<button type="button" id= "salir" class="boton_formulario_inicio" > Salir</button> --> <button type="button" id= "olvido_contraseña" class="boton_formulario_inicio"> Olvidé contraseña</button>
+									</div>
+								  </div>
+        					</div>
+       				
+        
 					</section>
 
 				<!-- One -->
@@ -93,14 +99,16 @@
 						<h2> Historial eventos sismicos </h2> 
 
 										 
-			
-													 <button type="button" id= "boton_tabla"> Historial</button>
+								 <fieldset>
+   									<legend>Mostrar historial</legend>
+    								<button type="button" id= "boton_tabla" class = "boton_historial"> Ver historial</button><h3>Filtrar por fechas: </h3>
 											         <button type="button" id= "boton_filtrar_tabla"><img src="img/calendario.png" alt="Calendario"></button>
 											        
 											         
 											
 											          <input type="date" id = "calendario" name="Selecciona una fecha" disabled>
-														<button type="button" id= "boton_aceptar_tabla" disabled> Aceptar</button>	
+														<button type="button" id= "boton_aceptar_tabla" class = "boton_historial" disabled> Aceptar</button>	
+								</fieldset>						
 											    	
 						<div class="table-wrapper">
 										<table id = "tabla">
@@ -125,10 +133,10 @@
 
 						<section>
 							
-							<div id="chartHistoricoSismos" style="width:500px; height:280px"></div>
+							<div id="chartHistoricoSismos" class = "canvas" ></div>
 
 
-							<div id="chartCantSismos" style="width:500px; height:280px"></div>
+							<div id="chartCantSismos" class = "canvas" ></div>
 						</section>
 					</section>
 

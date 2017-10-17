@@ -6,6 +6,7 @@ var menu = $("#sidebar");
       var div1 = $("#one");
       var div2 = $("#two");
       var div3 = $("#three"); 
+      var div0 = $("#intro");
 var username;
  var user ;
 var pass;
@@ -21,7 +22,7 @@ function initializar(){
 
     auth.sendPasswordResetEmail(emailAddress)
       .then (function(){
-        modal("se envio un correo");
+        modal(`Se ha enviado un correo a ${emailAddress}. Por favor siga las instrucciones para recuperar su contraseña`);
       }, function(error) {
         modal(error)
 
@@ -49,32 +50,38 @@ function initializar(){
           div1.css('display', 'none');
           div2.css('display', 'none');
           div3.css('display', 'none');
-        alert("bien");
+          div0.css('display', 'block');
+        modal("Su sesión ha sido cerrada ¡Hasta pronto!");
       }, function(error) {
-        // An error happened.
+        modal(errorMessage);
       });
 
           });
-  }
+ }
 
 function autentificar(user,pass){
-  event.preventDefault();
+ event.preventDefault();
   firebase.auth().signInWithEmailAndPassword(user, pass)     
     .then(function(result) {                            //Si el usuario existe en el registro se loggea y entra aqui
       user = firebase.auth().currentUser;
-      idUsuario = user.uid;
+      idUsuario = user.uid; 
       
              
       menu.css('display', 'block');
       div1.css('display', 'block');
       div2.css('display', 'block');
       div3.css('display', 'block');
+   
+   div0.css('display', 'none');
 
+     var nombreUser = database.ref().child('users').child(idUsuario)
       var username = database.ref().child('users').child(idUsuario).child('rango');      //Obtener el rango en la bdd para saber 
       username.on('value',function(datasnapshot){                                        // si el usuario esta registrado como administrador         
       username.innerText = datasnapshot.val();
             //Validar el rango del usuario que ingreso para determinar sus permisos en la pagina
 
+            console.log(nombreUser);
+ 
     $("#email").val('');
     $("#password").val('');   
       
@@ -87,16 +94,13 @@ function autentificar(user,pass){
       }   
 
       else {
-        alert("no tiene permisos de admin");
+     
+        modal(`Bienvenido `);
 
            $( 'input[type ="checkbox"]' ).attr("disabled", true);
       }
     
     
-
-
-  //    alert(username.innerText);
-  //  location.href="html/consola.html";  
   });
   
 
@@ -104,9 +108,9 @@ function autentificar(user,pass){
     
     })
     .catch(function(error) {
-        alert("no se puede ingresar");
+        modal("no se puede ingresar");
       //$("#myModalerror").modal();
       //var errorMessage = error.message;
-      //alert(errorMessage);
+      //alert(errorMessage); 
     });
 }
