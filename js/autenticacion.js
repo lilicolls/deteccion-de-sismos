@@ -71,8 +71,9 @@ function autentificar(user,pass){
       div1.css('display', 'block');
       div2.css('display', 'block');
       div3.css('display', 'block');
-   
-   div0.css('display', 'none');
+      $('.demo').attr('dis', 'true');
+      $( 'input[type ="checkbox"]' ).attr("disabled", true);
+   //div0.css('display', 'none');
 
      var nombreUser = database.ref().child('users').child(idUsuario)
       var username = database.ref().child('users').child(idUsuario).child('rango');      //Obtener el rango en la bdd para saber 
@@ -91,13 +92,15 @@ function autentificar(user,pass){
        modal('Bienvenido administrador');
 
 
+
       }   
 
       else {
      
         modal(`Bienvenido `);
 
-           $( 'input[type ="checkbox"]' ).attr("disabled", true);
+           
+           $('#boton_cargas').attr('disabled', true);
       }
     
     

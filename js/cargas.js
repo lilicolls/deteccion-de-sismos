@@ -73,7 +73,10 @@ function manipularCargas(){
 		   
 		  });
 
+			$('#boton_cargas').on("click",function(){
+				      $( 'input[type ="checkbox"]' ).attr("disabled", false);
 
+				console.log("prubea");
 				$( 'input[type ="checkbox"]' )
 					  .change(function() {
 					    var $input = $( this );
@@ -83,5 +86,9 @@ function manipularCargas(){
 					     database.ref(ruta).update({ estado: estado });
 					  })
 					  .change();
+
+			});
+
+			/*	 */
 
 }
